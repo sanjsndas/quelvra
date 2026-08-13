@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Quelyra Sunthorn Alcove</title>
+  <!-- Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500;7..72,600;7..72,700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f8f5f0;
+      color: #1f2a24;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* ---- brand identity ---- */
+    .site-header {
+      padding: 32px 0 16px;
+      border-bottom: 1px solid rgba(30, 40, 30, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: #2a5c4a;
+      border-radius: 44% 56% 38% 62% / 50% 40% 60% 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ece5d8;
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      transform: rotate(-6deg);
+      box-shadow: 0 8px 20px rgba(42, 92, 74, 0.12);
+    }
+    .brand-text {
+      font-family: 'Literata', serif;
+      font-weight: 400;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+      color: #1f2a24;
+    }
+    .brand-text span {
+      font-weight: 300;
+      color: #6e7d72;
+    }
+    .nav {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      list-style: none;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #2b3a32;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 6px;
+      transition: 0.2s;
+    }
+    .nav a:hover { border-bottom-color: #9ab8a8; color: #1a2c20; }
+    .nav a.active { border-bottom-color: #5b8a72; color: #1a2c20; }
+    /* ---- page specific: about ---- */
+    .about-hero {
+      padding: 56px 0 30px;
+      margin: 24px 0 16px;
+    }
+    .about-hero h1 {
+      font-family: 'Literata', serif;
+      font-weight: 300;
+      font-size: 3.4rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .about-hero h1 em {
+      font-style: normal;
+      background: #d8e0d3;
+      padding: 0 16px;
+      border-radius: 60px 8px 60px 8px;
+    }
+    .about-hero p {
+      font-size: 1.2rem;
+      color: #3c5043;
+      max-width: 700px;
+      margin-top: 18px;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 50px;
+      margin: 40px 0 60px;
+    }
+    .about-main h2 {
+      font-family: 'Literata', serif;
+      font-weight: 400;
+      font-size: 2rem;
+      margin: 32px 0 16px;
+      border-left: 8px solid #6d8f78;
+      padding-left: 20px;
+    }
+    .about-main h2:first-of-type { margin-top: 0; }
+    .about-main p {
+      margin-bottom: 20px;
+      color: #2d4236;
+    }
+    .about-main ul {
+      list-style: none;
+      margin: 16px 0 24px;
+    }
+    .about-main li {
+      padding: 6px 0;
+      border-bottom: 1px solid #e2ece0;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .about-main li::before { content: "✧"; color: #2f6b4a; font-size: 1.2rem; }
+    .about-sidebar {
+      background: #f0f3eb;
+      border-radius: 120px 20px 120px 20px;
+      padding: 40px 28px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+      align-self: start;
+    }
+    .about-sidebar h3 {
+      font-family: 'Literata', serif;
+      font-weight: 500;
+      font-size: 1.6rem;
+      border-bottom: 2px solid #c2d4c2;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .about-sidebar .quote {
+      font-family: 'Literata', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #1f3a2a;
+      padding: 16px 0;
+      border-top: 1px solid #d2dfce;
+      margin-top: 20px;
+    }
+    .about-sidebar .quote span {
+      display: block;
+      font-style: normal;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 8px;
+      color: #4a6b51;
+    }
+    .team-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .team-member {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #ffffffcc;
+      padding: 8px 16px 8px 12px;
+      border-radius: 80px;
+    }
+    .team-member .avatar {
+      width: 44px;
+      height: 44px;
+      background: #a9bfaa;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Literata', serif;
+      font-size: 1.2rem;
+      color: #1f3828;
+    }
+    .team-member .name { font-weight: 500; }
+    .team-member .role { font-size: 0.8rem; color: #4f6b53; }
+    /* stats row */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 60px;
+      background: #e9eee4;
+      padding: 36px 40px;
+      border-radius: 200px 20px 200px 20px;
+      margin: 30px 0 50px;
+      justify-content: center;
+    }
+    .stat-item { text-align: center; }
+    .stat-item .number {
+      font-family: 'Literata', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1;
+      color: #1d3a2a;
+    }
+    .stat-item .label { font-size: 0.9rem; color: #3f5a44; letter-spacing: 0.03em; }
+    /* footer */
+    .site-footer {
+      margin-top: 80px;
+      border-top: 2px solid #dce3d6;
+      padding: 48px 0 32px;
+      background: #f3f5ed;
+      border-radius: 60px 60px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand { font-family: 'Literata', serif; font-size: 1.3rem; }
+    .footer-links a { display: block; color: #2d4236; text-decoration: none; padding: 4px 0; font-size: 0.9rem; border-bottom: 1px dotted #d0dad0; }
+    .footer-links a:hover { color: #1a2c1e; }
+    .footer-copyright { margin-top: 40px; text-align: center; font-size: 0.85rem; color: #5b6d5a; border-top: 1px solid #d4dfd0; padding-top: 24px; }
+    .btn-ghost { display: inline-block; padding: 10px 28px; border: 1px solid #40634e; border-radius: 60px; color: #1f2f25; text-decoration: none; font-weight: 500; transition: 0.2s; background: transparent; }
+    .btn-ghost:hover { background: #2a4d39; color: #f0f5ea; border-color: #2a4d39; }
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav { gap: 1rem; flex-wrap: wrap; }
+    }
+    @media (max-width: 500px) {
+      .about-hero h1 { font-size: 2.4rem; }
+      .stats-row { border-radius: 60px 16px; padding: 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header (identical to homepage) -->
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <div class="logo-icon">☘</div>
+      <div class="brand-text">Quelyra <span>Sunthorn Alcove</span></div>
+    </a>
+    <div>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="terms.html">Terms Of Privacy</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="cookies.html">Cookies Policy</a></li> 
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="categories.html">Categories</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- about hero -->
+  <section class="about-hero">
+    <h1>an alcove for the <em>curious</em> cultivator</h1>
+    <p>Quelyra Sunthorn Alcove is a premium gardening journal founded in 2026 — a quiet corner of the web where botanical depth meets literary care. We believe that gardens are not just plots of land, but living libraries of memory, mycelium, and meaning.</p>
+  </section>
+
+  <!-- main about content -->
+  <div class="about-grid">
+    <div class="about-main">
+      <h2>our story</h2>
+      <p>Born from a love of heirloom tomatoes, compost alchemy, and the forgotten art of the cutting garden, Quelyra Sunthorn Alcove began as a personal notebook. It has grown into a gathering place for gardeners who read, writers who dig, and anyone who finds solace in the rhythm of the seasons.</p>
+      <p>We publish long-form essays, field reports, and deep dives into soil science, botanical history, and the quiet intelligence of plants. Our approach is slow, intentional, and rooted in the belief that a garden is never just a garden — it is a conversation.</p>
+
+      <h2>what we stand for</h2>
+      <ul>
+        <li><strong>Depth over haste</strong> — Every article is researched, revised, and allowed to breathe.</li>
+        <li><strong>Mycelial thinking</strong> — We explore the underground networks that connect all living things.</li>
+        <li><strong>Heirloom & heritage</strong> — We champion varieties, techniques, and stories that have stood the test of time.</li>
+        <li><strong>Gentle expertise</strong> — We share knowledge with humility, curiosity, and a reverence for the natural world.</li>
+      </ul>
+      <p>We are not influencers. We are cultivators — of words, soil, and wonder.</p>
+
+      <h2>the alcove ethos</h2>
+      <p>An alcove is a recess, a sheltered space. Here, we step back from the noise of the digital garden and tend to something slower. Our content is designed to be read slowly, ideally with a cup of tea and a view of the green. We hope you find a home here.</p>
+    </div>
+
+    <div class="about-sidebar">
+      <h3>✧ behind the alcove</h3>
+      <p style="margin-bottom: 12px;"><strong>Founded</strong> 2026 · sunthorn valley</p>
+      <p style="margin-bottom: 20px;"><strong>Editorial focus</strong> · long-form gardening, mycology, heirloom botany, garden memoir</p>
+
+      <div class="team-list">
+        <div class="team-member">
+          <div class="avatar">EQ</div>
+          <div><div class="name">Eira Quelyra</div><div class="role">editor &amp; head cultivator</div></div>
+        </div>
+        <div class="team-member">
+          <div class="avatar">TS</div>
+          <div><div class="name">Thorne Sunthorn</div><div class="role">soil correspondent</div></div>
+        </div>
+        <div class="team-member">
+          <div class="avatar">ML</div>
+          <div><div class="name">Mira Larkin</div><div class="role">botanical researcher</div></div>
+        </div>
+      </div>
+
+      <div class="quote">
+        “A garden is a verb. It is always becoming.”
+        <span>— from the alcove manifesto</span>
+      </div>
+      <a href="#" class="btn-ghost" style="margin-top:24px; width:100%; text-align:center;">read the manifesto</a>
+    </div>
+  </div>
+
+  <!-- stats row -->
+  <div class="stats-row">
+    <div class="stat-item"><div class="number">46</div><div class="label">long-form articles</div></div>
+    <div class="stat-item"><div class="number">12</div><div class="label">soil &amp; fungi guides</div></div>
+    <div class="stat-item"><div class="number">8</div><div class="label">heirloom spotlights</div></div>
+    <div class="stat-item"><div class="number">∞</div><div class="label">curiosity</div></div>
+  </div>
+
+  <!-- footer (same as homepage) -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Quelyra Sunthorn Alcove</div>
+        <p style="margin:12px 0; font-size:0.9rem; color:#3b5340;">A premium garden journal for the thoughtful cultivator. Established 2026.</p>
+      </div>
+      <div class="footer-links"><strong>explore</strong><a href="#">Blog</a><a href="#">Categories</a><a href="#">Archive</a><a href="#">Authors</a></div>
+      <div class="footer-links"><strong>information</strong><a href="about.html">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+      <div class="footer-links"><strong>legal</strong><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie Policy</a><a href="#">Disclaimer</a></div>
+    </div>
+    <div class="footer-copyright">
+      © 2026 Quelyra Sunthorn Alcove · handcrafted with care · sitemap
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>

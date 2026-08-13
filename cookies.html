@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookies · Quelyra Sunthorn Alcove</title>
+  <!-- Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500;7..72,600;7..72,700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f8f5f0;
+      color: #1f2a24;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* ---- brand identity ---- */
+    .site-header {
+      padding: 32px 0 16px;
+      border-bottom: 1px solid rgba(30, 40, 30, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: #2a5c4a;
+      border-radius: 44% 56% 38% 62% / 50% 40% 60% 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ece5d8;
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      transform: rotate(-6deg);
+      box-shadow: 0 8px 20px rgba(42, 92, 74, 0.12);
+    }
+    .brand-text {
+      font-family: 'Literata', serif;
+      font-weight: 400;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+      color: #1f2a24;
+    }
+    .brand-text span {
+      font-weight: 300;
+      color: #6e7d72;
+    }
+    .nav {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      list-style: none;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #2b3a32;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 6px;
+      transition: 0.2s;
+    }
+    .nav a:hover { border-bottom-color: #9ab8a8; color: #1a2c20; }
+    .nav a.active { border-bottom-color: #5b8a72; color: #1a2c20; }
+    /* ---- cookies page specific ---- */
+    .page-hero {
+      padding: 48px 0 20px;
+      margin: 12px 0 20px;
+    }
+    .page-hero h1 {
+      font-family: 'Literata', serif;
+      font-weight: 300;
+      font-size: 3.2rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .page-hero h1 em {
+      font-style: normal;
+      background: #d8e0d3;
+      padding: 0 16px;
+      border-radius: 60px 8px 60px 8px;
+    }
+    .page-hero p {
+      font-size: 1.2rem;
+      color: #3c5043;
+      max-width: 720px;
+      margin-top: 18px;
+    }
+    .cookies-policy {
+      background: #f3f6ef;
+      border-radius: 80px 20px 80px 20px;
+      padding: 44px 48px;
+      margin: 32px 0 48px;
+      box-shadow: inset 0 1px 4px rgba(255,255,255,0.7);
+    }
+    .cookies-policy h2 {
+      font-family: 'Literata', serif;
+      font-weight: 400;
+      font-size: 1.9rem;
+      margin: 36px 0 16px;
+      border-left: 8px solid #6d8f78;
+      padding-left: 20px;
+    }
+    .cookies-policy h2:first-of-type { margin-top: 0; }
+    .cookies-policy p {
+      margin-bottom: 20px;
+      color: #2d4236;
+    }
+    .cookies-policy ul {
+      list-style: none;
+      margin: 16px 0 24px;
+    }
+    .cookies-policy li {
+      padding: 6px 0;
+      border-bottom: 1px solid #e2ece0;
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+    }
+    .cookies-policy li::before { content: "✧"; color: #2f6b4a; font-size: 1.2rem; }
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0 16px;
+      background: #fcfcf7;
+      border-radius: 30px 8px 30px 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .cookie-table th {
+      background: #dce5d6;
+      font-weight: 600;
+      text-align: left;
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      color: #1e3426;
+    }
+    .cookie-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid #e3ece0;
+      color: #284034;
+    }
+    .cookie-table tr:last-child td { border-bottom: none; }
+    .highlight-box {
+      background: #e6ede3;
+      padding: 20px 28px;
+      border-radius: 100px 12px 100px 12px;
+      margin: 32px 0 12px;
+      border-left: 6px solid #517a5d;
+    }
+    .highlight-box strong { color: #1d3a26; }
+    .btn-ghost {
+      display: inline-block;
+      padding: 10px 28px;
+      border: 1px solid #40634e;
+      border-radius: 60px;
+      color: #1f2f25;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      background: transparent;
+    }
+    .btn-ghost:hover { background: #2a4d39; color: #f0f5ea; border-color: #2a4d39; }
+    .btn-primary {
+      display: inline-block;
+      padding: 12px 36px;
+      background: #2a5c4a;
+      color: #f2f6ed;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid #2a5c4a;
+      transition: 0.2s;
+    }
+    .btn-primary:hover { background: #1e4838; border-color: #1e4838; }
+    /* footer */
+    .site-footer {
+      margin-top: 60px;
+      border-top: 2px solid #dce3d6;
+      padding: 48px 0 32px;
+      background: #f3f5ed;
+      border-radius: 60px 60px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand { font-family: 'Literata', serif; font-size: 1.3rem; }
+    .footer-links a { display: block; color: #2d4236; text-decoration: none; padding: 4px 0; font-size: 0.9rem; border-bottom: 1px dotted #d0dad0; }
+    .footer-links a:hover { color: #1a2c1e; }
+    .footer-copyright { margin-top: 40px; text-align: center; font-size: 0.85rem; color: #5b6d5a; border-top: 1px solid #d4dfd0; padding-top: 24px; }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav { gap: 1rem; flex-wrap: wrap; }
+      .cookies-policy { padding: 28px 20px; }
+    }
+    @media (max-width: 500px) {
+      .page-hero h1 { font-size: 2.4rem; }
+      .cookie-table { font-size: 0.85rem; }
+      .cookie-table th, .cookie-table td { padding: 10px 12px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header (identical to homepage) -->
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <div class="logo-icon">☘</div>
+      <div class="brand-text">Quelyra <span>Sunthorn Alcove</span></div>
+    </a>
+    <div>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="terms.html">Terms Of Privacy</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="cookies.html" class="active">Cookies Policy</a></li> 
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="categories.html">Categories</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- page hero -->
+  <section class="page-hero">
+    <h1>cookies & <em>digital</em> crumbs</h1>
+    <p>Like the mycelial networks beneath a forest floor, cookies help us understand how you move through the alcove — anonymously, respectfully, and always with your privacy in mind.</p>
+  </section>
+
+  <!-- cookies policy content -->
+  <div class="cookies-policy">
+    <h2>what are cookies?</h2>
+    <p>Cookies are small text files that are stored on your device when you visit a website. They help us remember your preferences, understand how you interact with our content, and improve your experience. We use cookies sparingly and never for intrusive tracking.</p>
+
+    <h2>how we use cookies</h2>
+    <p>At Quelyra Sunthorn Alcove, we use cookies for three purposes:</p>
+    <ul>
+      <li><strong>Essential:</strong> to keep the site functional (e.g., remembering your cookie preferences).</li>
+      <li><strong>Analytics:</strong> to count visits and see which articles resonate most — always aggregated and anonymised.</li>
+      <li><strong>Preference:</strong> to remember your display choices (like dark mode, if we ever add it).</li>
+    </ul>
+    <p>We do not use advertising cookies, nor do we share your data with third-party platforms. Your visit remains a quiet one.</p>
+
+    <h2>cookies we use</h2>
+    <table class="cookie-table">
+      <thead>
+        <tr><th>Name</th><th>Purpose</th><th>Duration</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>alcove_session</td><td>Essential session cookie</td><td>session</td></tr>
+        <tr><td>alcove_pref</td><td>Stores user preferences (e.g. font size)</td><td>1 year</td></tr>
+        <tr><td>alcove_analytics</td><td>Anonymised visit counter (via self-hosted)</td><td>30 days</td></tr>
+        <tr><td>alcove_cookie_consent</td><td>Remembers your cookie consent choice</td><td>6 months</td></tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      <strong>✧ your consent is your own.</strong> We only set non‑essential cookies after you give us permission. You can change your mind at any time via the cookie settings in your browser.
+    </div>
+
+    <h2>managing cookies</h2>
+    <p>You can control and delete cookies through your browser settings. Most browsers allow you to block third‑party cookies, clear existing ones, or opt out of analytics. For more detailed instructions, visit the help section of your browser.</p>
+    <p style="margin-top: 12px;">We recommend keeping essential cookies enabled to ensure the alcove works as intended, but the choice is entirely yours.</p>
+
+    <h2>changes to this policy</h2>
+    <p>We may update this Cookies Policy from time to time to reflect changes in technology or regulation. Any updates will be posted here, and we will notify you via the website if they are significant.</p>
+    <p><em>Last reviewed: August 2026</em></p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px;">
+      <a href="#" class="btn-primary">accept all cookies</a>
+      <a href="#" class="btn-ghost">manage preferences</a>
+      <a href="privacy.html" class="btn-ghost" style="border-color: #8ba392;">privacy policy</a>
+    </div>
+  </div>
+
+  <!-- subtle extra: a note about mycelium -->
+  <div style="margin: 24px 0 10px; padding: 8px 16px; border-left: 4px solid #b7ceb0; font-style: italic; color: #3b5d44;">
+    “Just as mycelium connects the roots of trees, cookies connect us to your needs — without ever disturbing the soil.”
+  </div>
+
+  <!-- footer (same as homepage) -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Quelyra Sunthorn Alcove</div>
+        <p style="margin:12px 0; font-size:0.9rem; color:#3b5340;">A premium garden journal for the thoughtful cultivator. Established 2026.</p>
+      </div>
+      <div class="footer-links"><strong>explore</strong><a href="#">Blog</a><a href="#">Categories</a><a href="#">Archive</a><a href="#">Authors</a></div>
+      <div class="footer-links"><strong>information</strong><a href="about.html">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+      <div class="footer-links"><strong>legal</strong><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="cookies.html">Cookie Policy</a><a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+    <div class="footer-copyright">
+      © 2026 Quelyra Sunthorn Alcove · handcrafted with care · sitemap
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>

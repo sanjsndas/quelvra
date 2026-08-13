@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms · Quelyra Sunthorn Alcove</title>
+  <!-- Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500;7..72,600;7..72,700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f8f5f0;
+      color: #1f2a24;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* ---- brand identity ---- */
+    .site-header {
+      padding: 32px 0 16px;
+      border-bottom: 1px solid rgba(30, 40, 30, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: #2a5c4a;
+      border-radius: 44% 56% 38% 62% / 50% 40% 60% 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ece5d8;
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      transform: rotate(-6deg);
+      box-shadow: 0 8px 20px rgba(42, 92, 74, 0.12);
+    }
+    .brand-text {
+      font-family: 'Literata', serif;
+      font-weight: 400;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+      color: #1f2a24;
+    }
+    .brand-text span {
+      font-weight: 300;
+      color: #6e7d72;
+    }
+    .nav {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      list-style: none;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #2b3a32;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 6px;
+      transition: 0.2s;
+    }
+    .nav a:hover { border-bottom-color: #9ab8a8; color: #1a2c20; }
+    .nav a.active { border-bottom-color: #5b8a72; color: #1a2c20; }
+    /* ---- terms page specific ---- */
+    .terms-hero {
+      padding: 48px 0 20px;
+      margin: 12px 0 8px;
+    }
+    .terms-hero h1 {
+      font-family: 'Literata', serif;
+      font-weight: 300;
+      font-size: 3.2rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .terms-hero h1 em {
+      font-style: normal;
+      background: #d8e0d3;
+      padding: 0 16px;
+      border-radius: 60px 8px 60px 8px;
+    }
+    .terms-hero p {
+      font-size: 1.15rem;
+      color: #3c5043;
+      max-width: 700px;
+      margin-top: 18px;
+    }
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 50px;
+      margin: 40px 0 60px;
+    }
+    .terms-main h2 {
+      font-family: 'Literata', serif;
+      font-weight: 400;
+      font-size: 1.9rem;
+      margin: 36px 0 14px;
+      border-left: 8px solid #6d8f78;
+      padding-left: 20px;
+    }
+    .terms-main h2:first-of-type { margin-top: 0; }
+    .terms-main p {
+      margin-bottom: 20px;
+      color: #2d4236;
+    }
+    .terms-main ul {
+      list-style: none;
+      margin: 16px 0 24px;
+    }
+    .terms-main li {
+      padding: 6px 0;
+      border-bottom: 1px solid #e2ece0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .terms-main li::before { content: "✦"; color: #2f6b4a; font-size: 1.2rem; }
+    .terms-sidebar {
+      background: #f0f3eb;
+      border-radius: 120px 20px 120px 20px;
+      padding: 40px 28px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+      align-self: start;
+    }
+    .terms-sidebar h3 {
+      font-family: 'Literata', serif;
+      font-weight: 500;
+      font-size: 1.6rem;
+      border-bottom: 2px solid #c2d4c2;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .terms-sidebar .highlight {
+      background: #ffffffcc;
+      padding: 20px 18px;
+      border-radius: 60px 12px 60px 12px;
+      margin: 20px 0;
+    }
+    .terms-sidebar .highlight p { margin: 0; font-size: 0.95rem; }
+    .terms-sidebar .quote {
+      font-family: 'Literata', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #1f3a2a;
+      padding: 16px 0;
+      border-top: 1px solid #d2dfce;
+      margin-top: 20px;
+    }
+    .terms-sidebar .quote span {
+      display: block;
+      font-style: normal;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 8px;
+      color: #4a6b51;
+    }
+    .btn-ghost {
+      display: inline-block;
+      padding: 10px 28px;
+      border: 1px solid #40634e;
+      border-radius: 60px;
+      color: #1f2f25;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      background: transparent;
+      margin-top: 12px;
+    }
+    .btn-ghost:hover { background: #2a4d39; color: #f0f5ea; border-color: #2a4d39; }
+    /* stats row (optional) */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 60px;
+      background: #e9eee4;
+      padding: 36px 40px;
+      border-radius: 200px 20px 200px 20px;
+      margin: 30px 0 50px;
+      justify-content: center;
+    }
+    .stat-item { text-align: center; }
+    .stat-item .number {
+      font-family: 'Literata', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1;
+      color: #1d3a2a;
+    }
+    .stat-item .label { font-size: 0.9rem; color: #3f5a44; letter-spacing: 0.03em; }
+    /* footer */
+    .site-footer {
+      margin-top: 80px;
+      border-top: 2px solid #dce3d6;
+      padding: 48px 0 32px;
+      background: #f3f5ed;
+      border-radius: 60px 60px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand { font-family: 'Literata', serif; font-size: 1.3rem; }
+    .footer-links a { display: block; color: #2d4236; text-decoration: none; padding: 4px 0; font-size: 0.9rem; border-bottom: 1px dotted #d0dad0; }
+    .footer-links a:hover { color: #1a2c1e; }
+    .footer-copyright { margin-top: 40px; text-align: center; font-size: 0.85rem; color: #5b6d5a; border-top: 1px solid #d4dfd0; padding-top: 24px; }
+    @media (max-width: 900px) {
+      .terms-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav { gap: 1rem; flex-wrap: wrap; }
+    }
+    @media (max-width: 500px) {
+      .terms-hero h1 { font-size: 2.2rem; }
+      .stats-row { border-radius: 60px 16px; padding: 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header (consistent with about/home) -->
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <div class="logo-icon">☘</div>
+      <div class="brand-text">Quelyra <span>Sunthorn Alcove</span></div>
+    </a>
+    <div>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="terms.html" class="active">Terms</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="cookies.html">Cookies Policy</a></li> 
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="categories.html">Categories</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- terms hero -->
+  <section class="terms-hero">
+    <h1>terms of <em>cultivation</em></h1>
+    <p>These terms govern your use of the Quelyra Sunthorn Alcove digital garden. By entering, you agree to wander with respect, curiosity, and a gentle spirit.</p>
+  </section>
+
+  <!-- main terms content -->
+  <div class="terms-grid">
+    <div class="terms-main">
+      <h2>1. the alcove agreement</h2>
+      <p>Welcome to Quelyra Sunthorn Alcove. By accessing or using our website, you agree to be bound by these terms. If you do not agree, please leave the garden quietly. We reserve the right to update these terms at any time; continued use constitutes acceptance.</p>
+
+      <h2>2. intellectual property &amp; content</h2>
+      <p>All text, images, illustrations, and original research published on this site are the intellectual property of Quelyra Sunthorn Alcove, unless otherwise noted. You may share excerpts for non-commercial purposes with proper attribution, but you may not reproduce, distribute, or commercially exploit our work without explicit written consent.</p>
+      <ul>
+        <li><strong>Personal use:</strong> You are welcome to print articles for your own reference or share links with fellow cultivators.</li>
+        <li><strong>Derivative works:</strong> Translations, adaptations, or reposts require prior approval.</li>
+        <li><strong>Heirloom respect:</strong> Our botanical content is offered as a resource; we do not guarantee outcomes, but we do guarantee our care in research.</li>
+      </ul>
+
+      <h2>3. user conduct &amp; community</h2>
+      <p>We believe in gentle discourse. Comments, messages, or interactions with the Alcove should be respectful, constructive, and free from harassment or spam. We reserve the right to moderate or remove content that violates this ethos.</p>
+
+      <h2>4. disclaimers &amp; liability</h2>
+      <p>Our content is for educational and inspirational purposes only. Gardening involves variables—soil, climate, and chance. We are not liable for any loss, damage, or disappointment arising from the use of our information. Always consult local experts and exercise your own judgment.</p>
+      <ul>
+        <li><strong>No professional advice:</strong> We are cultivators, not certified agronomists. Treat our guidance as a starting point.</li>
+        <li><strong>External links:</strong> We may link to third-party sites; we are not responsible for their content or practices.</li>
+      </ul>
+
+      <h2>5. privacy &amp; data</h2>
+      <p>Your privacy matters. We collect minimal data (e.g., anonymized analytics) and never sell or share personal information. For full details, see our <a href="privacy.html" style="color:#2f6b4a;">Privacy Policy</a> and <a href="cookies.html" style="color:#2f6b4a;">Cookies Policy</a>.</p>
+
+      <h2>6. termination</h2>
+      <p>We hope you stay, but we reserve the right to suspend or terminate access to any user who violates these terms or disrupts the alcove’s tranquility.</p>
+      <p><em>Last updated: 11 August 2026 · Sunthorn Valley</em></p>
+    </div>
+
+    <div class="terms-sidebar">
+      <h3>✧ quick reference</h3>
+      <div class="highlight">
+        <p><strong>Effective date:</strong> 11 August 2026</p>
+        <p><strong>Governing law:</strong> The quiet wisdom of the garden</p>
+        <p><strong>Contact:</strong> <a href="contact.html" style="color:#2f6b4a;">reach out</a> for any questions</p>
+      </div>
+      <p style="margin-top: 16px;"><strong>Key principles</strong> · respect, reciprocity, reverence for the living world.</p>
+      <div class="quote">
+        “These terms are not a fence; they are a trellis. They support the growth of a kind and thoughtful community.”
+        <span>— from the alcove charter</span>
+      </div>
+      <a href="contact.html" class="btn-ghost" style="margin-top:24px; width:100%; text-align:center;">ask us anything</a>
+    </div>
+  </div>
+
+  <!-- stats row (same as about) -->
+  <div class="stats-row">
+    <div class="stat-item"><div class="number">46</div><div class="label">long-form articles</div></div>
+    <div class="stat-item"><div class="number">12</div><div class="label">soil &amp; fungi guides</div></div>
+    <div class="stat-item"><div class="number">8</div><div class="label">heirloom spotlights</div></div>
+    <div class="stat-item"><div class="number">∞</div><div class="label">curiosity</div></div>
+  </div>
+
+  <!-- footer (consistent) -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Quelyra Sunthorn Alcove</div>
+        <p style="margin:12px 0; font-size:0.9rem; color:#3b5340;">A premium garden journal for the thoughtful cultivator. Established 2026.</p>
+      </div>
+      <div class="footer-links"><strong>explore</strong><a href="#">Blog</a><a href="#">Categories</a><a href="#">Archive</a><a href="#">Authors</a></div>
+      <div class="footer-links"><strong>information</strong><a href="about.html">About</a><a href="contact.html">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+      <div class="footer-links"><strong>legal</strong><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="cookies.html">Cookie Policy</a><a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+    <div class="footer-copyright">
+      © 2026 Quelyra Sunthorn Alcove · handcrafted with care · sitemap
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories · Quelyra Sunthorn Alcove</title>
+  <!-- Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500;7..72,600;7..72,700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f8f5f0;
+      color: #1f2a24;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* ---- brand identity ---- */
+    .site-header {
+      padding: 32px 0 16px;
+      border-bottom: 1px solid rgba(30, 40, 30, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: #2a5c4a;
+      border-radius: 44% 56% 38% 62% / 50% 40% 60% 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ece5d8;
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      transform: rotate(-6deg);
+      box-shadow: 0 8px 20px rgba(42, 92, 74, 0.12);
+    }
+    .brand-text {
+      font-family: 'Literata', serif;
+      font-weight: 400;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+      color: #1f2a24;
+    }
+    .brand-text span {
+      font-weight: 300;
+      color: #6e7d72;
+    }
+    .nav {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #2b3a32;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 6px;
+      transition: 0.2s;
+    }
+    .nav a:hover { border-bottom-color: #9ab8a8; color: #1a2c20; }
+    .nav a.active { border-bottom-color: #5b8a72; color: #1a2c20; }
+
+    /* ---- categories hero ---- */
+    .categories-hero {
+      padding: 48px 0 20px;
+      margin: 12px 0 8px;
+    }
+    .categories-hero h1 {
+      font-family: 'Literata', serif;
+      font-weight: 300;
+      font-size: 3.2rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .categories-hero h1 em {
+      font-style: normal;
+      background: #d8e0d3;
+      padding: 0 16px;
+      border-radius: 60px 8px 60px 8px;
+    }
+    .categories-hero p {
+      font-size: 1.15rem;
+      color: #3c5043;
+      max-width: 700px;
+      margin-top: 18px;
+    }
+
+    /* category grid */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px 28px;
+      margin: 48px 0 60px;
+    }
+    .category-card {
+      background: #f2f5ed;
+      border-radius: 60px 16px 60px 16px;
+      padding: 32px 24px 28px;
+      box-shadow: 0 6px 18px rgba(30, 50, 30, 0.04);
+      transition: 0.2s;
+      border: 1px solid #e3ece0;
+      display: flex;
+      flex-direction: column;
+    }
+    .category-card:hover {
+      background: #f5f9f0;
+      box-shadow: 0 12px 28px rgba(40, 70, 50, 0.06);
+      transform: translateY(-4px);
+    }
+    .category-card .emoji-badge {
+      font-size: 2.6rem;
+      margin-bottom: 4px;
+    }
+    .category-card h3 {
+      font-family: 'Literata', serif;
+      font-weight: 500;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+      border-bottom: 2px solid #c6d9c6;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    .category-card p {
+      color: #2f4738;
+      font-size: 0.95rem;
+      flex: 1;
+    }
+    .category-card .meta {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #4b6a51;
+      border-top: 1px solid #d3e0ce;
+      padding-top: 16px;
+    }
+    .category-card .meta .count {
+      background: #dce6d4;
+      padding: 2px 16px;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+    .category-card .tag {
+      display: inline-block;
+      background: #e2ece0;
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #2b4d37;
+    }
+    .category-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    /* stats row */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 60px;
+      background: #e9eee4;
+      padding: 36px 40px;
+      border-radius: 200px 20px 200px 20px;
+      margin: 30px 0 50px;
+      justify-content: center;
+    }
+    .stat-item { text-align: center; }
+    .stat-item .number {
+      font-family: 'Literata', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1;
+      color: #1d3a2a;
+    }
+    .stat-item .label { font-size: 0.9rem; color: #3f5a44; letter-spacing: 0.03em; }
+
+    /* footer */
+    .site-footer {
+      margin-top: 80px;
+      border-top: 2px solid #dce3d6;
+      padding: 48px 0 32px;
+      background: #f3f5ed;
+      border-radius: 60px 60px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand { font-family: 'Literata', serif; font-size: 1.3rem; }
+    .footer-links a { display: block; color: #2d4236; text-decoration: none; padding: 4px 0; font-size: 0.9rem; border-bottom: 1px dotted #d0dad0; }
+    .footer-links a:hover { color: #1a2c1e; }
+    .footer-copyright { margin-top: 40px; text-align: center; font-size: 0.85rem; color: #5b6d5a; border-top: 1px solid #d4dfd0; padding-top: 24px; }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav { gap: 1rem; }
+    }
+    @media (max-width: 500px) {
+      .categories-hero h1 { font-size: 2.2rem; }
+      .stats-row { border-radius: 60px 16px; padding: 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header (consistent) -->
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <div class="logo-icon">☘</div>
+      <div class="brand-text">Quelyra <span>Sunthorn Alcove</span></div>
+    </a>
+    <div>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="cookies.html">Cookies Policy</a></li> 
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="categories.html" class="active">Categories</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- categories hero -->
+  <section class="categories-hero">
+    <h1>alcove <em>categories</em></h1>
+    <p>Wander through our curated garden rooms — each category is a doorway to deeper cultivation, from soil wisdom to heirloom tales.</p>
+  </section>
+
+  <!-- category cards -->
+  <div class="category-grid">
+    
+    <a href="#" class="category-link">
+      <div class="category-card">
+        <div class="emoji-badge">🌱</div>
+        <h3>Soil &amp; Roots</h3>
+        <p>Living soil, mycorrhizal networks, composting, and the foundation of every flourishing garden.</p>
+        <div class="meta"><span class="tag">foundation</span><span class="count">14 articles</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="category-link">
+      <div class="category-card">
+        <div class="emoji-badge">🌸</div>
+        <h3>Heirloom Flowers</h3>
+        <p>Heritage blooms, pollinator havens, and the romance of old-fashioned petals with stories to tell.</p>
+        <div class="meta"><span class="tag">beauty</span><span class="count">9 articles</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="category-link">
+      <div class="category-card">
+        <div class="emoji-badge">🍅</div>
+        <h3>Kitchen Garden</h3>
+        <p>Vegetables, herbs, and fruits for the table — seasonal wisdom and companion planting.</p>
+        <div class="meta"><span class="tag">harvest</span><span class="count">12 articles</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="category-link">
+      <div class="category-card">
+        <div class="emoji-badge">🌿</div>
+        <h3>Medicinal &amp; Herbal</h3>
+        <p>Traditional plant allies, tinctures, and the gentle art of herbalism for wellness.</p>
+        <div class="meta"><span class="tag">healing</span><span class="count">7 articles</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="category-link">
+      <div class="category-card">
+        <div class="emoji-badge">🌳</div>
+        <h3>Orchard &amp; Grove</h3>
+        <p>Fruit trees, nuts, and forest gardens — permaculture principles for the long view.</p>
+        <div class="meta"><span class="tag">perennial</span><span class="count">6 articles</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="category-link">
+      <div class="category-card">
+        <div class="emoji-badge">🐝</div>
+        <h3>Wildlife &amp; Ecology</h3>
+        <p>Bees, birds, beneficial insects, and the web of life that makes a garden whole.</p>
+        <div class="meta"><span class="tag">biodiversity</span><span class="count">10 articles</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="category-link">
+      <div class="category-card">
+        <div class="emoji-badge">📖</div>
+        <h3>Garden Lore</h3>
+        <p>Folklore, poetry, and the cultural roots that intertwine with our cultivation.</p>
+        <div class="meta"><span class="tag">story</span><span class="count">5 articles</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="category-link">
+      <div class="category-card">
+        <div class="emoji-badge">🧑‍🌾</div>
+        <h3>Grower’s Notebook</h3>
+        <p>Practical guides, seasonal checklists, and lessons from the field — for every skill level.</p>
+        <div class="meta"><span class="tag">practice</span><span class="count">16 articles</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- stats row (mirroring terms page) -->
+  <div class="stats-row">
+    <div class="stat-item"><div class="number">46</div><div class="label">long-form articles</div></div>
+    <div class="stat-item"><div class="number">12</div><div class="label">soil &amp; fungi guides</div></div>
+    <div class="stat-item"><div class="number">8</div><div class="label">heirloom spotlights</div></div>
+    <div class="stat-item"><div class="number">∞</div><div class="label">curiosity</div></div>
+  </div>
+
+  <!-- footer (consistent) -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Quelyra Sunthorn Alcove</div>
+        <p style="margin:12px 0; font-size:0.9rem; color:#3b5340;">A premium garden journal for the thoughtful cultivator. Established 2026.</p>
+      </div>
+      <div class="footer-links"><strong>explore</strong><a href="#">Blog</a><a href="#">Categories</a><a href="#">Archive</a><a href="#">Authors</a></div>
+      <div class="footer-links"><strong>information</strong><a href="about.html">About</a><a href="contact.html">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+      <div class="footer-links"><strong>legal</strong><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="cookies.html">Cookie Policy</a><a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+    <div class="footer-copyright">
+      © 2026 Quelyra Sunthorn Alcove · handcrafted with care · sitemap
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>

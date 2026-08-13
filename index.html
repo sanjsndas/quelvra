@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quelyra Sunthorn Alcove · premium gardening journal</title>
+  <!-- Premium Typography: modern serif + sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500;7..72,600;7..72,700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f8f5f0;
+      color: #1f2a24;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* ---- brand identity: Quelyra Sunthorn Alcove ---- */
+    .site-header {
+      padding: 32px 0 16px;
+      border-bottom: 1px solid rgba(30, 40, 30, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: #2a5c4a;
+      border-radius: 44% 56% 38% 62% / 50% 40% 60% 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ece5d8;
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      transform: rotate(-6deg);
+      box-shadow: 0 8px 20px rgba(42, 92, 74, 0.12);
+    }
+    .brand-text {
+      font-family: 'Literata', serif;
+      font-weight: 400;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+      color: #1f2a24;
+    }
+    .brand-text span {
+      font-weight: 300;
+      color: #6e7d72;
+    }
+    .nav {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #2b3a32;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 6px;
+      transition: 0.2s;
+    }
+    .nav a:hover { border-bottom-color: #9ab8a8; color: #1a2c20; }
+    /* ---- unique navigation (split) ---- */
+    .nav-secondary {
+      display: flex;
+      gap: 1.6rem;
+      font-size: 0.85rem;
+      color: #5b6b60;
+      margin-top: 6px;
+    }
+    .nav-secondary a { color: #5b6b60; text-decoration: none; border-bottom: 1px dotted #cbd6cd; }
+    /* ---- HOMEPAGE: "Alcove" architecture ---- */
+    /* section 1: alcove statement */
+    .alcove-essence {
+      padding: 56px 0 40px;
+      background: #f0f0e9;
+      margin: 32px 0 16px;
+      border-radius: 120px 20px 120px 20px;
+      background: #e9ece4;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    }
+    .essence-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: center;
+    }
+    .essence-text {
+      flex: 2 1 300px;
+    }
+    .essence-text h1 {
+      font-family: 'Literata', serif;
+      font-weight: 300;
+      font-size: 3.2rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #1f3028;
+    }
+    .essence-text h1 em {
+      font-style: normal;
+      background: #d8e0d3;
+      padding: 0 12px;
+      border-radius: 40px 8px 40px 8px;
+    }
+    .essence-text p {
+      margin-top: 20px;
+      font-size: 1.15rem;
+      color: #3c5043;
+      max-width: 500px;
+    }
+    .essence-visual {
+      flex: 1 1 200px;
+      background: #b3c9b8;
+      height: 160px;
+      border-radius: 60% 20% 70% 10% / 40% 60% 20% 70%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M20 70 L40 30 L70 50 L90 20 L80 80 L30 90 L10 60 Z" fill="%23dce6d0" opacity="0.4"/></svg>');
+      background-size: cover;
+      background-blend-mode: overlay;
+      box-shadow: 0 20px 40px -20px rgba(20,40,20,0.3);
+    }
+    /* section 2: knowledge hub — split cards */
+    .knowledge-hub {
+      padding: 50px 0 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .hub-card {
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      padding: 28px 22px;
+      border-radius: 80px 16px 80px 16px;
+      box-shadow: 0 8px 30px rgba(40, 60, 40, 0.04);
+      border: 1px solid #e6ede4;
+      transition: all 0.2s;
+    }
+    .hub-card:nth-child(2) { border-radius: 20px 80px 20px 80px; background: #f3f7f0; }
+    .hub-card:nth-child(3) { border-radius: 60px 20px 60px 20px; background: #fafbf7; }
+    .hub-card h3 {
+      font-family: 'Literata', serif;
+      font-weight: 500;
+      font-size: 1.5rem;
+      border-left: 6px solid #5b8a72;
+      padding-left: 16px;
+      margin-bottom: 16px;
+    }
+    .hub-card p { color: #3c4f40; font-size: 0.95rem; }
+    .hub-meta { display: flex; gap: 12px; margin-top: 20px; font-size: 0.8rem; color: #6a806f; }
+    /* section 3: long-form feature (handcrafted) */
+    .feature-article {
+      margin: 40px 0 60px;
+      background: #f4f3ea;
+      padding: 48px 40px;
+      border-radius: 200px 20px 200px 20px;
+      box-shadow: 0 20px 40px -20px #b0bcaa;
+    }
+    .feature-article h2 {
+      font-family: 'Literata', serif;
+      font-weight: 300;
+      font-size: 2.4rem;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+    }
+    .feature-article h2 strong { font-weight: 600; background: #d2dfce; padding: 0 10px; border-radius: 40px 4px; }
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 24px;
+    }
+    .feature-text {
+      flex: 2 1 300px;
+    }
+    .feature-text h3 { font-family: 'Literata', serif; font-weight: 500; font-size: 1.6rem; margin: 28px 0 12px; }
+    .feature-text ul { list-style: none; }
+    .feature-text li { padding: 6px 0; border-bottom: 1px solid #d9e2d6; display: flex; gap: 12px; }
+    .feature-text li::before { content: "✧"; color: #2f6b4a; }
+    .feature-infographic {
+      flex: 1 1 220px;
+      background: #cfddd0;
+      border-radius: 120px 20px 120px 20px;
+      padding: 32px 20px;
+      background-image: radial-gradient(circle at 20% 30%, #b1c7b0 1px, transparent 1px);
+      background-size: 24px 24px;
+      color: #1e382a;
+      font-family: 'Literata', serif;
+      font-size: 1rem;
+      box-shadow: inset 0 0 0 2px #e2eee0;
+      min-height: 220px;
+    }
+    .infographic-content { display: flex; flex-direction: column; gap: 16px; }
+    .infographic-content span { background: #ffffffbb; padding: 6px 14px; border-radius: 40px; }
+    /* section 4: timeline / journal */
+    .journal-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 40px 0 30px;
+    }
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      background: #ffffffd0;
+      padding: 12px 30px 12px 20px;
+      border-radius: 100px 20px 100px 20px;
+      border-left: 8px solid #6d8f78;
+    }
+    .timeline-item:nth-child(even) { border-left-color: #b3b9a4; border-radius: 20px 100px 20px 100px; }
+    .timeline-date { font-weight: 600; color: #395542; min-width: 80px; }
+    .timeline-title { font-weight: 500; }
+    .timeline-cat { margin-left: auto; background: #e6ede2; padding: 4px 18px; border-radius: 80px; font-size: 0.75rem; }
+    /* footer — unique */
+    .site-footer {
+      margin-top: 80px;
+      border-top: 2px solid #dce3d6;
+      padding: 48px 0 32px;
+      background: #f3f5ed;
+      border-radius: 60px 60px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand { font-family: 'Literata', serif; font-size: 1.3rem; }
+    .footer-links a { display: block; color: #2d4236; text-decoration: none; padding: 4px 0; font-size: 0.9rem; border-bottom: 1px dotted #d0dad0; }
+    .footer-links a:hover { color: #1a2c1e; }
+    .footer-copyright { margin-top: 40px; text-align: center; font-size: 0.85rem; color: #5b6d5a; border-top: 1px solid #d4dfd0; padding-top: 24px; }
+    /* responsive */
+    @media (max-width: 800px) {
+      .knowledge-hub { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav { gap: 1rem; flex-wrap: wrap; }
+      .essence-text h1 { font-size: 2.5rem; }
+    }
+    @media (max-width: 500px) {
+      .feature-article { padding: 24px 16px; }
+      .timeline-item { flex-wrap: wrap; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    /* utility */
+    .btn-ghost { display: inline-block; padding: 10px 28px; border: 1px solid #40634e; border-radius: 60px; color: #1f2f25; text-decoration: none; font-weight: 500; transition: 0.2s; background: transparent; }
+    .btn-ghost:hover { background: #2a4d39; color: #f0f5ea; border-color: #2a4d39; }
+    .spacer-32 { height: 32px; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header -->
+  <header class="site-header">
+    <a href="#" class="brand">
+      <div class="logo-icon">☘</div>
+      <div class="brand-text">Quelyra <span>Sunthorn Alcove</span></div>
+    </a>
+    <div>
+      <div class="nav">
+        <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms Of Privacy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+					<li><a href="cookies.html">Cookies Policy</a></li> 
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. Essence / alcove statement (hero reimagined) -->
+  <section class="alcove-essence">
+    <div class="essence-grid">
+      <div class="essence-text">
+        <h1>cultivate <em>depth</em> <br>in every leaf</h1>
+        <p>An alcove for gardeners who read, writers who dig. Long-form, slow, intentional.</p>
+        <a href="#" class="btn-ghost" style="margin-top:20px;">enter the alcove →</a>
+      </div>
+      <div class="essence-visual"></div>
+    </div>
+  </section>
+
+  <!-- 2. knowledge hub (3 pillars) -->
+  <div class="knowledge-hub">
+    <div class="hub-card">
+      <h3>soil &amp; spirit</h3>
+      <p>Mycorrhizal networks, compost alchemy, and the mycelium underground. 1800-word deep dives.</p>
+      <div class="hub-meta"><span>✧ 12 articles</span><span>🌱 updated weekly</span></div>
+    </div>
+    <div class="hub-card">
+      <h3>perennial wisdom</h3>
+      <p>Heirloom varieties, seed saving, and the art of cutting gardens. Seasonal rhythms.</p>
+      <div class="hub-meta"><span>✧ 8 guides</span><span>📖 long-form</span></div>
+    </div>
+    <div class="hub-card">
+      <h3>the green library</h3>
+      <p>Reviews of obscure horticultural texts, botanical essays, and garden memoirs.</p>
+      <div class="hub-meta"><span>✧ 14 notes</span><span>📚 curated</span></div>
+    </div>
+  </div>
+
+  <!-- 3. feature article (long-form excerpt) -->
+  <section class="feature-article">
+    <h2><strong>The mycelial mind</strong> · how fungi shape garden intelligence</h2>
+    <div class="feature-grid">
+      <div class="feature-text">
+        <h3>underground networks</h3>
+        <p style="font-size:1.05rem; color:#2e4436;">For decades, we treated soil as a medium. But the real conversation happens in the hyphal web — a living internet of nutrient exchange, warning signals, and symbiotic memory. In this extensive guide, we explore the research of Suzanne Simard, the role of ectomycorrhizal fungi, and how to cultivate a mycorrhizal garden.</p>
+        <ul>
+          <li>the wood wide web: 6 key species</li>
+          <li>companion planting through fungal lenses</li>
+          <li>mistakes: tilling, fungicides, and compaction</li>
+          <li>expert advice: building a fungal rich bed</li>
+        </ul>
+        <a href="#" style="margin-top:18px; display:inline-block; font-weight:500; color:#2a5c3e;">continue reading →</a>
+        <!-- table example -->
+        <div style="margin-top:24px; background:#eff0e7; padding:16px; border-radius: 40px 8px; font-size:0.9rem;">
+          <table style="width:100%; border-collapse:collapse;">
+            <tr><th style="text-align:left; padding:6px 0;">Fungal type</th><th style="text-align:left;">Role</th><th>companions</th></tr>
+            <tr><td>Glomus</td><td>phosphorus transport</td><td>most perennials</td></tr>
+            <tr><td>Rhizopogon</td><td>nitrogen fixing</td><td>pines, oaks</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="feature-infographic">
+        <div class="infographic-content">
+          <span>🌿 72% of garden plants</span>
+          <span>⬆︎ mycorrhizal dependency</span>
+          <span>⬇︎ 40% less water need</span>
+          <span>✧ 3 key companion families</span>
+          <span style="background:#cbdcc6;">infographic: fungal network</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. journal timeline (handcrafted) -->
+  <div class="journal-timeline">
+    <div class="timeline-item"><span class="timeline-date">May 12</span><span class="timeline-title">Compost as ecosystem: a 2000-word field report</span><span class="timeline-cat">soil</span></div>
+    <div class="timeline-item"><span class="timeline-date">May 5</span><span class="timeline-title">Heirloom tomato varieties: taste, history, and resilience</span><span class="timeline-cat">perennial</span></div>
+    <div class="timeline-item"><span class="timeline-date">Apr 27</span><span class="timeline-title">The forgotten art of the cutting garden — 10 designer tips</span><span class="timeline-cat">design</span></div>
+    <div class="timeline-item"><span class="timeline-date">Apr 18</span><span class="timeline-title">Slugs, snails, and biodiversity: a balanced approach</span><span class="timeline-cat">pests</span></div>
+  </div>
+
+  <!-- extra: FAQ snippet, comparison table etc -->
+  <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 40px 0; background: #eaece2; padding: 40px 30px; border-radius: 140px 20px 140px 20px;">
+    <div style="flex:1;">
+      <h3 style="font-family:'Literata',serif; font-weight:400;">❋ expert advice</h3>
+      <p>“Let the soil breathe. Avoid deep tilling, and introduce woody debris for fungal habitat.” — <em>E. V. Quelyra</em></p>
+      <div style="margin-top:16px; display:flex; gap:30px; flex-wrap:wrap;">
+        <div><strong>mistake:</strong> overwatering new transplants</div>
+        <div><strong>fix:</strong> water deeply, but less frequently</div>
+      </div>
+    </div>
+    <div style="flex:1; background:#f8f7ef; padding:20px; border-radius: 80px 12px;">
+      <h4 style="font-weight:500;">🌱 quick comparison</h4>
+      <table style="width:100%; font-size:0.9rem;">
+        <tr><th>mulch type</th><th>water retention</th><th>fungal benefit</th></tr>
+        <tr><td>wood chips</td><td>high</td><td>+++</td></tr>
+        <tr><td>straw</td><td>medium</td><td>+</td></tr>
+        <tr><td>compost</td><td>very high</td><td>++</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Quelyra Sunthorn Alcove</div>
+        <p style="margin:12px 0; font-size:0.9rem; color:#3b5340;">A premium garden journal for the thoughtful cultivator. Established 2026.</p>
+      </div>
+      <div class="footer-links"><strong>explore</strong><a href="#">Blog</a><a href="#">Categories</a><a href="#">Archive</a><a href="#">Authors</a></div>
+      <div class="footer-links"><strong>information</strong><a href="#">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
+      <div class="footer-links"><strong>legal</strong><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie Policy</a><a href="#">Disclaimer</a></div>
+    </div>
+    <div class="footer-copyright">
+      © 2026 Quelyra Sunthorn Alcove · handcrafted with care · sitemap
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>
